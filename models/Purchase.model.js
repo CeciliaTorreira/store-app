@@ -13,7 +13,7 @@ const purchaseSchema = new Schema(
     },
     paymentMethod: {
     type: String,
-    enum: ["Paypal", "Tarjeta", "Contrareembolso"],
+    enum: ["Paypal", "Tarjeta", "Contrarreembolso"],
     required: true
     }
   },
