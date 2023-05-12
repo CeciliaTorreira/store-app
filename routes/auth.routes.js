@@ -78,13 +78,78 @@ router.post("/signup", (req, res, next)=>{
 })
 
 
+//* GET "/auth/login" => Renderizamos la página de inicio de sesión
+
+router.get("/login", (req, res, next)=>{
+
+ res.render("authentication/login.hbs")
+
+})
+
+
+//* POST "/auth/login" => Recibe la información del usuario y le permite acceder a su cuenta.
+
+router.post("/login", async (req, res, next)=>{
+
+// Todos los campos son obligatorios de rellenar.
+if(req.body.username === "" || req.body.password === "")
+{
+  res.render("authentication/login.hbs", {
+    errorMessage: "Por favor, introduce tu nombre de usuario y contraseña."
+  })
+  return
+} 
+
+try{
+
+// Comprobamos que las credenciales coinciden con una cuenta ya creada en la base de datos.
+
+const foundUser = await User.findOne({username: req.body.username})
+
+if (foundUser === null) {
+    res.render("authentication/login.hbs", {
+        errorMessage: "No existe ningún usuario registrado con ese nombre."
+    })
+
+    return
+}
+
+// Comprobamos que la contraseña coincide con la cuenta en la base de datos.
+
+const correctPassword = await bcrypt.compare(req.body.password, foundUser.password)
+
+if (correctPassword === false){
+    res.render("authentication/login.hbs", {
+        errorMessage: "Contraseña incorrecta."
+    })
+
+    return
+}
+
+req.session.activeUser = foundUser  // Sesión creada
+
+req.session.save(()=>{
+    res.redirect("/")
+})
+
+}
+catch (error) {
+    next(error)
+   }
+   
+ })
 
 
 
+//* GET "/auth/logout" => Cierra la sesión actual
 
+router.get("/logout", (req, res, next)=>{
 
+    req.session.destroy(()=>{
+        res.redirect("/")
+    })
 
-
+})
 
 
 

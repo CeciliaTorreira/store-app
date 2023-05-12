@@ -7,7 +7,7 @@ const purchaseSchema = new Schema(
     required: true
     },
     purchasedProduct: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Product",
         required: true
     },

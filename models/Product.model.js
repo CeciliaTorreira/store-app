@@ -13,13 +13,12 @@ const productSchema = new Schema(
     },
     category: {
     type: String,
-    enum: ["figure", "cómic", "videojuegos", "peluche", "decoración", "miscelánea"],
+    enum: ["figura", "cómic", "videojuegos", "peluche", "decoración", "miscelánea"],
     required: true,
     },
-    imageURL: {
-    type: String,
-    required: true
-    }
+    //productImage: {
+    //type: String,
+    //required: true}
   },
   {
     timestamps: true

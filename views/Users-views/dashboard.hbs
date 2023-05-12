@@ -1,0 +1,17 @@
+<div>
+
+
+    <h1>Perfil</h2>
+
+<h2>Bienvenido/a, {{foundUser.username}}.</h2>
+
+<br>
+
+<h2>Historial de compra</h2>
+{{#each foundUser.purchasesMade}}
+
+<p>{{this.name}}: {{this.price}}</p>
+
+{{/each}}
+
+</div>
