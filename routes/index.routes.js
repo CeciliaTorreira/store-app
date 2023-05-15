@@ -19,7 +19,10 @@ router.use("/auth", authRouter)
 const profileRouter = require("./profile.routes.js") 
 router.use("/profile", profileRouter) 
 
+//* RUTAS DE PRODUCTOS
 
+const productRouter = require("./product.routes.js") 
+router.use("/product", productRouter)
 
 
 
