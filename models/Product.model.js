@@ -16,6 +16,10 @@ const productSchema = new Schema(
     enum: ["figura", "cómic", "videojuegos", "peluche", "decoración", "miscelánea"],
     required: true,
     },
+    description: {
+      type: String,
+      required: true,
+    },
     //productImage: {
     //type: String,
     //required: true}

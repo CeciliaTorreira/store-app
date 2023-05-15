@@ -1,3 +1,13 @@
 <div>
     <h1>Detalles del producto</h1>
+    
+    <div>
+        <h2>{{this.products.name}}</h2>
+        <p>{{this.products.price}}</p>
+        <p>{{this.products.description}}</p>
+    </div>
+
+    <div>
+        <button><a href="/product/{{this.products._id}}/purchase">Comprar</a></button>
+    </div>
 </div>

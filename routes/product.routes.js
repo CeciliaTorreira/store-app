@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();  
 
 const Product = require("../models/Product.model.js")
+const Purchase = require("../models/Purchase.model.js")
 
 
 //* GET /product/products => renderiza todos los productos
@@ -24,9 +25,36 @@ router.get('/products/:id', (req, res, next) => {
    .catch(err => next(err))
 })
 
+//* GET /product/:id/purchase => comprar un producto por su id
 
+router.get('/:id/purchase', (req, res, next) => {
+    Product.findById(req.params.id)
+    .then(product => {
+        res.render('products/purchase.hbs', {product: product})
+      })
+    .catch(err => next(err))  
+})
 
+//* POST /product/:id/purchase => comprar un producto por su id
 
+router.post('/:id/purchase', (req, res, next) => {
+    Product.findById(req.params.id)
+    .then((response) => {
+        Purchase.create({
+        buyerName: req.body.buyerName,
+        shippingAddress: req.body.shippingAddress,
+        purchasedProduct: response,
+        paymentMethod: req.body.paymentMethod,
+        })
+        
+    })
+    
+  .then(() =>{
+    res.redirect('/profile')
+  })
+  .catch(err => next(err))
+
+})
 
 
 

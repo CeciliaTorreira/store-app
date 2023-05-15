@@ -2,6 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const purchaseSchema = new Schema(
   {
+    buyerName: {
+      type: String,
+      required: true
+    },
     shippingAddress: {
     type: String,
     required: true

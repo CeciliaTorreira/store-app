@@ -62,6 +62,7 @@ router.post("/add-product", (req, res, next)=>{
    name: req.body.name,
    price: req.body.price,
    category: req.body.category,
+   description: req.body.description,
    // productImage: req.file.path // todo
     })
     .then(()=>{

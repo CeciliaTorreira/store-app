@@ -1,0 +1,38 @@
+<div>
+    <h1>Voy a comprar :)</h1>
+    <div>
+        <form action="/product/{{this.product._id}}/purchase" method="post">
+        
+        <label for="buyerName">Nombre del comprador:</label>
+        <input type="text" name="buyerName">
+
+
+        <br>
+        <br>
+
+        <label for="shippingAddress">Dirección de envío:</label>
+        <input type="text" name="shippingAddress">
+
+        <br>
+        <br>
+
+        <label for="paymentMethod">Método de pago:</label>
+        <br>
+        <br>
+        <select name="paymentMethod" multiple>
+
+        <option value="Paypal">Paypal</option>
+        <option value="Tarjeta">Tarjeta</option>
+        <option value="Contrarreembolso">Contrarreembolso</option>
+
+        </select>
+
+        <br>
+        <br>
+
+        <button>Comprar</button>
+        </form>
+    </div>
+
+
+</div>
