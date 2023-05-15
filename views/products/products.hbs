@@ -4,7 +4,7 @@
 
     <div>
         {{#each products}}
-            <li>{{this.name}}</li>
+            <li><a href="/product/products/{{this._id}}">{{this.name}}</a></li>
         {{/each}}
     </div>
 

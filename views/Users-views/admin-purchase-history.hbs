@@ -1,0 +1,21 @@
+<div>
+    <table>
+    <thead>
+        <th style="text-align:center">Nombre del producto</th>
+        <th style="text-align:center">Precio</th>
+        <th style="text-align:center">Comprador</th>
+        <th style="text-align:center">Fecha de compra</th>
+    </thead>
+    <tbody>
+        {{#each foundPurchase}}
+            <tr>
+                <td style="text-align:center">{{this.purchasedProduct.name}}</td>
+                <td style="text-align:center">{{this.purchasedProduct.price}}</td>
+                <td style="text-align:center">{{this.buyerName}}</td>
+                <td style="text-align:center">{{this.createdAt}}</td>
+
+            </tr>
+        {{/each}}    
+    </tbody>
+</table>
+</div>
