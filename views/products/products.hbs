@@ -4,7 +4,11 @@
 
     <div>
         {{#each products}}
-            <li><a href="/product/products/{{this._id}}">{{this.name}}</a></li>
+        <div class="product-card">
+            <img src="{{this.productImage}}" width="180px" height="270px" alt="Imagen de producto">
+            <br>
+            <a href="/product/products/{{this._id}}">{{this.name}}</a>
+        </div>        
         {{/each}}
     </div>
 

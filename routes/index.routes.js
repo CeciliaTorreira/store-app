@@ -1,10 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
+const {updateLocals} = require("../middlewares/authentication.middlewares.js")
+router.use(updateLocals)
+
+const {isAdmin} = require("../middlewares/authentication.middlewares.js");
 
 /* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
+router.get("/",(req, res, next) => {
+  res.render("index",{
+    isAdmin: req.session.activeUser.role === "admin",
+  });
 });
 
 

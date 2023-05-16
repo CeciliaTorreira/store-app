@@ -12,7 +12,7 @@
     </div>
 
 <br>
-
+ {{#if isAdmin}}
     <div class="admin-edit-button">
        <a href="/product/products/{{this.products._id}}/edit"> <button>Editar producto</button></a>
     </div>
@@ -22,4 +22,5 @@
    <button class="delete-button">Eliminar producto</button>
     </form>
 </div>
+{{/if}}
 </div>

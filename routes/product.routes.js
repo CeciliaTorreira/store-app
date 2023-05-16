@@ -4,6 +4,10 @@ const router = express.Router();
 const Product = require("../models/Product.model.js");
 const Purchase = require("../models/Purchase.model.js");
 
+
+const {isLoggedIn, isAdmin} = require("../middlewares/authentication.middlewares.js")
+
+
 //* GET /product/products => renderiza todos los productos
 
 router.get("/products", (req, res, next) => {
@@ -19,14 +23,16 @@ router.get("/products", (req, res, next) => {
 router.get("/products/:id", (req, res, next) => {
   Product.findById(req.params.id)
     .then((products) => {
-      res.render("products/product-details.hbs", { products: products });
+      res.render("products/product-details.hbs", { products: products,
+      isAdmin: req.session.activeUser.role === "admin" && req.session.activeUser,
+      activeUser: req.session.activeUser });
     })
     .catch((err) => next(err));
 });
 
 //* GET /product/:id/purchase => comprar un producto por su id
 
-router.get("/:id/purchase", (req, res, next) => {
+router.get("/:id/purchase", isLoggedIn, (req, res, next) => {
   Product.findById(req.params.id)
     .then((product) => {
       res.render("products/purchase.hbs", { product: product });
@@ -36,7 +42,8 @@ router.get("/:id/purchase", (req, res, next) => {
 
 //* POST /product/:id/purchase => comprar un producto por su id
 
-router.post("/:id/purchase", (req, res, next) => {
+router.post("/:id/purchase", isLoggedIn, (req, res, next) => {
+
   if (
     req.body.buyerName === "" ||
     req.body.shippingAddress === "" ||
@@ -81,7 +88,7 @@ router.get("/product-search", (req, res, next)=>{
 
 //* GET "/product/products/:id/edit" => Renderiza la vista para editar un producto
 
-router.get("/products/:id/edit", (req, res, next)=>{
+router.get("/products/:id/edit", isAdmin, isLoggedIn, (req, res, next)=>{
   Product.findById(req.params.id)
   .then((product)=>{
      res.render("products/edit-product.hbs", {
@@ -95,7 +102,7 @@ router.get("/products/:id/edit", (req, res, next)=>{
 
 //* POST "/product/products/:id/edit" => Recibe la información del admin y actualiza un producto
 
-router.post("/products/:id/edit", (req, res, next)=>{
+router.post("/products/:id/edit", isAdmin, isLoggedIn, (req, res, next)=>{
   Product.findByIdAndUpdate(req.params.id, {
    name: req.body.name, 
    price: req.body.price, 
@@ -116,7 +123,7 @@ router.post("/products/:id/edit", (req, res, next)=>{
 
 //* POST "/product/products/:id/delete" => Borra un producto de la base de datos
 
-router.post("/products/:id/delete", (req, res, next)=>{
+router.post("/products/:id/delete", isAdmin, isLoggedIn, (req, res, next)=>{
   Product.findByIdAndDelete(req.params.id)
   .then(()=>{
     res.redirect("/product/products")

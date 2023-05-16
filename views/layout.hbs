@@ -1,38 +1,49 @@
-<!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>{{appTitle}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-   </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{appTitle}}</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
 
-   <body>
-  <nav>
-<a href="/">Inicio</a>
-<a href="/auth/signup">Regístrate</a>
-<a href="/auth/login">Inicia sesión</a>
-<a href="/profile">Perfil de usuario</a>
-<a href="/profile/admin">Perfil de administrador</a>
-<a href="/product/products">Lista de productos</a>
+  <body>
+    <nav>
 
-<a href="/auth/logout">Cerrar sesión</a>
-  </nav>
-  <br>
-  <div class="search-bar">
-   <form action="/product/product-search" method="get"> 
- <input name="productName" type="text" placeholder="Busca un producto"  list="products">
- <button>Buscar</button>
- </form>
-  </div>
-<br>
-<br>
+      <a href="/">Inicio</a>
+      {{#if this.isUserActive}}
 
-      {{{body}}}
+        <a href="/profile">Perfil de usuario</a>
+        <a href="/product/products">Lista de productos</a>
+        <a href="/auth/logout">Cerrar sesión</a>
 
-      <script src="/js/script.js"></script>
-   </body>
+      {{else}}
+
+        <a href="/auth/signup">Regístrate</a>
+        <a href="/auth/login">Inicia sesión</a>
+        <a href="/product/products">Lista de productos</a>
+      {{/if}}
+
+    </nav>
+    <br />
+    <div class="search-bar">
+      <form action="/product/product-search" method="get">
+        <input
+          name="productName"
+          type="text"
+          placeholder="Busca un producto"
+          list="products"
+        />
+        <button>Buscar</button>
+      </form>
+    </div>
+    <br />
+    
+
+    {{{body}}}
+
+    <script src="/js/script.js"></script>
+  </body>
 
 </html>
