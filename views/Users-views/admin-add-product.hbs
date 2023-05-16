@@ -1,65 +1,64 @@
 <div>
 
-   <h1>Formulario para añadir producto</h1>
+  <h1>Formulario para añadir producto</h1>
 
-   <div>
+  <div>
 
-   <form action="/profile/add-product" method="post">
+    <form action="/profile/add-product" method="post" enctype="multipart/form-data">
 
-   <label for="name">Nombre de producto:</label>
-   <input type="text" name="name">
+      <label for="name">Nombre de producto:</label>
+      <input type="text" name="name" />
 
+      <br />
+      <br />
 
-   <br>
-   <br>
+      <label for="price">Precio del producto:</label>
+      <input type="text" name="price" />
 
-   <label for="price">Precio del producto:</label>
-   <input type="text" name="price">
+      <br />
+      <br />
 
-   <br>
-   <br>
+      <label for="category">Categoría:</label>
+      <br />
+      <br />
+      <select name="category" multiple>
 
-   <label for="category">Categoría:</label>
-   <br>
-   <br>
-   <select name="category" multiple>
+        <option value="figura">Figura</option>
+        <option value="cómic">Cómic</option>
+        <option value="videojuegos">Videojuegos</option>
+        <option value="peluche">Peluche</option>
+        <option value="decoración">Decoración</option>
+        <option value="miscelánea">Miscelánea</option>
 
-   <option value="figura">Figura</option>
-   <option value="cómic">Cómic</option>
-   <option value="videojuegos">Videojuegos</option>
-   <option value="peluche">Peluche</option>
-   <option value="decoración">Decoración</option>
-   <option value="miscelánea">Miscelánea</option>
+      </select>
 
-   </select>
+      <br />
+      <br />
 
-   <br>
-   <br>
+      <label for="description">Descripción:</label>
+      <input type="text" name="description" />
 
-   <label for="description">Descripción:</label>
-   <input type="text" name="description">
+      <br />
+      <br />
 
-   <br>
-   <br>
+      <label for="productImage">Imagen de producto:</label>
+      <br />
+      <br />
+      <input type="file" name="productImage" />
 
-   <label for="productImage">Imagen de producto:</label>
-   <br>
-   <br>
-   <input type="file" name="productImage">
+      <br />
+      <br />
 
-   <br>
-   <br>
+      <button>Añadir producto</button>
 
-   <button>Añadir producto</button>
+    </form>
 
-   </form>
-
-   <div>
+    <div>
 
       <p>{{this.errorMessage}}</p>
 
-   </div>
+    </div>
 
-   </div>
+  </div>
 
 </div>

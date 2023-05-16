@@ -20,9 +20,7 @@ const productSchema = new Schema(
       type: String,
       required: true,
     },
-    //productImage: {
-    //type: String,
-    //required: true}
+    productImage: String,
   },
   {
     timestamps: true
