@@ -47,6 +47,8 @@ router.get("/add-product", (req, res, next) => {
 //* POST "/profile/add-product" => Recibe la información del admin y crea el producto en la base de datos
 
 router.post("/add-product", uploader.single("productImage"), (req, res, next) => {
+  console.log(req.body)
+  console.log(req.file)
   if (
     req.body.name === "" ||
     req.body.price === "" ||
@@ -56,7 +58,7 @@ router.post("/add-product", uploader.single("productImage"), (req, res, next) =>
   ) {
     res.render("users-views/admin-add-product.hbs", {
       errorMessage: "Por favor, rellene todos los campos",
-    });
+    })
     return;
   }
   Product.create({
@@ -70,9 +72,8 @@ router.post("/add-product", uploader.single("productImage"), (req, res, next) =>
       res.redirect("/profile/admin");
     })
     .catch((error) => {
-      console.log(error);
+      next(error);
     });
-  // res.render("users-views/admin-add-product.hbs")
 });
 
 //* GET /profile/purchase-history => Renderiza la vista de las compras en la web
