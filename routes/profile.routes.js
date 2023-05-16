@@ -4,6 +4,7 @@ const router = express.Router();
 const User = require("../models/User.model.js");
 const Product = require("../models/Product.model.js");
 const Purchase = require("../models/Purchase.model.js");
+const uploader = require("../middlewares/uploader.js")
 
 // * RUTAS DE USUARIO
 
@@ -45,12 +46,13 @@ router.get("/add-product", (req, res, next) => {
 
 //* POST "/profile/add-product" => Recibe la información del admin y crea el producto en la base de datos
 
-router.post("/add-product", (req, res, next) => {
+router.post("/add-product", uploader.single("productImage"), (req, res, next) => {
   if (
     req.body.name === "" ||
     req.body.price === "" ||
     req.body.category === "" ||
-    req.body.description === ""
+    req.body.description === "" ||
+    req.file === undefined
   ) {
     res.render("users-views/admin-add-product.hbs", {
       errorMessage: "Por favor, rellene todos los campos",
@@ -62,7 +64,7 @@ router.post("/add-product", (req, res, next) => {
     price: req.body.price,
     category: req.body.category,
     description: req.body.description,
-    // productImage: req.file.path // todo
+    productImage: req.file.path 
   })
     .then(() => {
       res.redirect("/profile/admin");
