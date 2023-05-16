@@ -63,4 +63,21 @@ router.post("/:id/purchase", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+
+//* GET /product/product-search => Renderiza la vista de la búsqueda de un producto
+
+router.get("/product-search", (req, res, next)=>{
+Product.findOne()
+.then((foundProduct)=>{
+  res.render("products/search.hbs", {
+    foundProduct: foundProduct
+  })
+})
+.catch((error)=>{
+  console.log(error);
+})
+})
+
+
+
 module.exports = router;

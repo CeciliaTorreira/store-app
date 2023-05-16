@@ -1,0 +1,18 @@
+<div>
+    <h1>Resultados de búsqueda</h1>
+ {{#if this.foundProduct}}
+    <div class="search-result">
+        {{!-- <img src="{{foundProduct.productImg}}" alt=""> --}}
+        <h4>
+        {{foundProduct.name}}
+        </h4>
+        {{foundProduct.price}}
+
+    </div>
+   {{else}}
+    <div>
+ <h3>No se encontró ningún producto</h3>
+    </div>
+    </div>
+
+    {{/if}}
