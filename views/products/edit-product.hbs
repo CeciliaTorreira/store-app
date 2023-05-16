@@ -1,0 +1,62 @@
+<div>
+   <h2>Edición de producto</h2>
+
+   <div>
+
+   <form action="/product/products/{{this.product._id}}/edit" method="post">
+
+   <label for="name">Nombre de producto:</label>
+   <input type="text" name="name" value="{{this.product.name}}">
+
+
+   <br>
+   <br>
+
+   <label for="price">Precio del producto:</label>
+   <input type="text" name="price" value="{{this.product.price}}">
+
+   <br>
+   <br>
+
+   <label for="category">Categoría:</label>
+   <br>
+   <br>
+   <select name="category" multiple>
+
+   <option value="figura">Figura</option>
+   <option value="cómic">Cómic</option>
+   <option value="videojuegos">Videojuegos</option>
+   <option value="peluche">Peluche</option>
+   <option value="decoración">Decoración</option>
+   <option value="miscelánea">Miscelánea</option>
+
+   </select>
+
+   <br>
+   <br>
+
+   <label for="description">Descripción:</label>
+   <input type="text" name="description" value="{{this.product.description}}">
+
+   <br>
+   <br>
+
+   <label for="productImage">Imagen de producto:</label>
+   <br>
+   <br>
+   <input type="file" name="productImage">
+
+   <br>
+   <br>
+
+   <button>Actualizar producto</button>
+
+   </form>
+
+   <div>
+
+   </div>
+
+
+
+</div>

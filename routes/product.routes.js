@@ -67,7 +67,7 @@ router.post("/:id/purchase", (req, res, next) => {
 //* GET /product/product-search => Renderiza la vista de la búsqueda de un producto
 
 router.get("/product-search", (req, res, next)=>{
-Product.findOne()
+  Product.findOne({ name: req.query.productName })
 .then((foundProduct)=>{
   res.render("products/search.hbs", {
     foundProduct: foundProduct
@@ -76,6 +76,54 @@ Product.findOne()
 .catch((error)=>{
   console.log(error);
 })
+})
+
+
+//* GET "/product/products/:id/edit" => Renderiza la vista para editar un producto
+
+router.get("/products/:id/edit", (req, res, next)=>{
+  Product.findById(req.params.id)
+  .then((product)=>{
+     res.render("products/edit-product.hbs", {
+      product: product
+     })
+  })
+  .catch((error)=>{
+    next(error)
+})  
+})   
+
+//* POST "/product/products/:id/edit" => Recibe la información del admin y actualiza un producto
+
+router.post("/products/:id/edit", (req, res, next)=>{
+  Product.findByIdAndUpdate(req.params.id, {
+   name: req.body.name, 
+   price: req.body.price, 
+   category: req.body.category,
+   description: req.body.description}, 
+   {new: true})
+   
+   .then(()=>{
+    res.redirect("/product/products")
+   })
+   .catch((error)=>{
+    next(error);
+   })
+  
+})
+
+
+
+//* POST "/product/products/:id/delete" => Borra un producto de la base de datos
+
+router.post("/products/:id/delete", (req, res, next)=>{
+  Product.findByIdAndDelete(req.params.id)
+  .then(()=>{
+    res.redirect("/product/products")
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
 })
 
 
