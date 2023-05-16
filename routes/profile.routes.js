@@ -89,8 +89,7 @@ router.post(
 //* GET /profile/purchase-history => Renderiza la vista de las compras en la web
 
 router.get("/purchase-history", isLoggedIn, isAdmin, (req, res, next) => {
-  Purchase.find()
-    .populate("purchasedProduct")
+  Purchase.find().populate("purchasedProduct")
 
     .then((foundPurchase) => {
       res.render("users-views/admin-purchase-history.hbs", {
