@@ -24,7 +24,7 @@ router.get("/products/:id", (req, res, next) => {
   Product.findById(req.params.id)
     .then((products) => {
       res.render("products/product-details.hbs", { products: products,
-      isAdmin: req.session.activeUser.role === "admin" && req.session.activeUser,
+      isAdmin: req.session.activeUser && req.session.activeUser.role === "admin",
       activeUser: req.session.activeUser });
     })
     .catch((err) => next(err));

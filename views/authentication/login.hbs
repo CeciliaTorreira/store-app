@@ -3,18 +3,30 @@
 
 <h3>Inicia sesión</h3>
 
-<div class="login-card">
+<div>
 
-<form action="/auth/login" method="post">
+<form action="/auth/login" method="post" class="row g-3 needs-validation" novalidate>
 
-<label for="username">Nombre de usuario*:</label>
-<input type="text" name="username">
+<div class="col-md-4">
+    <label for="username" class="form-label">Nombre de usuario*:</label>
+    <input type="text" class="form-control" id="validationCustom01" name="username">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+</div>
+ 
 
 <br>
 <br>
 
-<label for="password">Contraseña*:</label>
-<input type="password" name="password">
+<div class="col-md-4">
+    <label for="password" class="form-label">Contraseña*:</label>
+    <input type="password" class="form-control" id="validationCustom01" name="password">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+
+</div>
 
 <br>
 
@@ -23,7 +35,9 @@
 <br>
 <br>
 
-<button>Iniciar sesión</button>
+<div class="col-12">
+    <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+  </div>
 
 {{#if this.errorMessage}}
  <p>{{errorMessage}}</p>
@@ -33,4 +47,5 @@
 
 </form>
 
+</div>
 </div>

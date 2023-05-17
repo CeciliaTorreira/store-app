@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +9,73 @@ a {
 
 h1 {
   color: 15px;
+}
+
+#nav-id {
+  background-color: rgb(209, 236, 245);
+  margin: 0;
+  padding: 20px;
+  border: 4px double #ca9fe9;
+  border-radius: 20px;
+}
+
+#nav-id a {
+  text-decoration: none;
+  color:#ca9fe9;
+  padding: 10px;
+}
+
+#enlace-inicio {
+  margin-left: 1060px;
+}
+
+#enlace-inicio2 {
+  margin-left: 1000px;
+}
+
+#div-inicio {
+  text-align: center;
+}
+
+#div-inicio-img {
+  margin-left: 500px;
+  margin-right: 500px;
+  padding: 20;
+}
+
+#div-inicio p {
+  font-family: monospace;
+}
+
+.search-bar form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin: 0;
+}
+
+.search-bar form input[type="text"] {
+  background-color: rgb(208, 230, 237);
+  width: 400px;
+  height: 32px;
+  border: 2px inset #ca9fe9;
+  border-radius: 20px;
+}
+
+.search-bar form button {
+  background-color:#f9cbfd;
+  margin-left: 5px;
+  border: 2px inset #ca9fe9;
+  width: 70px;
+  height: 32px;
+  border-radius: 20px;
+}
+
+#main {
+  background-color: #f8ecf8;
+  margin-top: 10px;
+  padding: 20px;
+  border: 4px double #ca9fe9;
+  border-radius: 20px;
 }

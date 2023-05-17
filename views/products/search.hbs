@@ -1,3 +1,19 @@
+ <br />
+    <div class="search-bar">
+      <form action="/product/product-search" method="get">
+        <input
+          name="productName"
+          type="text"
+          placeholder=" Escribe lo que estés buscando ~ 🌺"
+          list="products"
+        />
+        <br>
+        <button>Buscar</button>
+      </form>
+    </div>
+    <br />
+
+
 <div>
     <h1>Resultados de búsqueda</h1>
  {{#if this.foundProduct}}
