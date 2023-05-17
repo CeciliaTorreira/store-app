@@ -3,7 +3,7 @@
 
 function isLoggedIn(req, res, next) {
     if (req.session.activeUser === undefined){
-        res.redirect("/")
+        res.redirect("/auth/signup")
     }
     else 
     {

@@ -26,7 +26,7 @@ h1 {
 }
 
 #enlace-inicio {
-  margin-left: 1060px;
+  margin-left: 1020px;
 }
 
 #enlace-inicio2 {
@@ -78,4 +78,10 @@ h1 {
   padding: 20px;
   border: 4px double #ca9fe9;
   border-radius: 20px;
+}
+
+#color{
+  background-color: lightpink !important;
+  color: black;
+  border:#ca9fe9
 }
