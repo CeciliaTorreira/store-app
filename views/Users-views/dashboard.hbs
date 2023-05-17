@@ -8,10 +8,36 @@
 <br>
 
 <h2>Historial de compra</h2>
-{{#each foundUser.purchasesMade}}
+<div>
+    <table>
+    <thead>
+        <th style="text-align:center">Nombre del producto</th>
+        <th style="text-align:center">Precio</th>
+        <th style="text-align:center">Método de pago</th>
+        <th style="text-align:center">Fecha de compra</th>
+    </thead>
+    <tbody>
+        {{#each foundUser.purchasesMade}}
+            <tr>
+                <td style="text-align:center">{{this.name}}</td>
+                <td style="text-align:center">{{this.price}}</td>
+                <td style="text-align:center">{{this.paymentMethod}}</td>
+                <td style="text-align:center">{{this.createdAt}}</td>
+            </tr>
+        {{/each}}    
+    </tbody>
+</table>
+</div>
+
+
+{{!-- A MEDIAS --}}
+
+
+
+{{!-- {{#each foundUser.purchasesMade}}
 
 <p>{{this.purchasedProduct}}: {{this.paymentMethod}}</p>
 
-{{/each}}
+{{/each}} --}}
 
 </div>
