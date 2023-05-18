@@ -1,36 +1,45 @@
 <div>
-    <h1>Voy a comprar :)</h1>
+    <h1>Comprar producto 💜</h1>
     <div>
+
         <form action="/product/{{this.product._id}}/purchase" method="post">
-        
-        <label for="buyerName">Nombre del comprador:</label>
-        <input type="text" name="buyerName">
-
-
-        <br>
-        <br>
-
-        <label for="shippingAddress">Dirección de envío:</label>
-        <input type="text" name="shippingAddress">
-
-        <br>
+        <div class="col-md-4">
+            <label for="buyerName" class="form-label">Nombre del comprador: </label>
+            <input type="text" class="form-control" id="validationCustom01" name="buyerName"/>
+            <div class="valid-feedback">
+               Looks good!
+            </div>
+         </div>
         <br>
 
-        <label for="paymentMethod">Método de pago:</label>
-        <br>
-        <br>
-        <select name="paymentMethod" multiple>
-
-        <option value="Paypal">Paypal</option>
-        <option value="Tarjeta">Tarjeta</option>
-        <option value="Contrarreembolso">Contrarreembolso</option>
-
-        </select>
-
-        <br>
+        <div class="col-md-4">
+            <label for="shippingAddress" class="form-label">Dirección de envío:</label>
+            <input type="text" class="form-control" id="validationCustom01" name="shippingAddress"/>
+            <div class="valid-feedback">
+               Looks good!
+            </div>
+         </div>
         <br>
 
-        <button>Comprar</button>
+        <div class="col-md-3">
+            <label for="paymentMethod" class="form-label">Método de pago:</label>
+            <select class="form-select" name="paymentMethod" id="validationCustom04" required>
+                <option selected disabled>Elige método de pago...</option>
+                <option value="Paypal">Paypal</option>
+                <option value="Tarjeta">Tarjeta</option>
+                <option value="Contrarreembolso">Contrarreembolso</option>
+            </select>
+            <div class="invalid-feedback">
+               Please select a valid state.
+            </div>
+         </div>
+
+        <br>
+
+        <div class="col-12">
+            <button class="btn btn-primary" id="color" type="submit">Comprar</button>
+         </div>
+
         </form>
         <div>
             <p>{{this.errorMessage}}</p>

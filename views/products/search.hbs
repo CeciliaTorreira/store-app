@@ -14,20 +14,21 @@
     <br />
 
 
-<div>
-    <h1>Resultados de búsqueda</h1>
+<div id="not-search">
+    <h1>Resultados de tu búsqueda </h1>
  {{#if this.foundProduct}}
-    <div class="search-result">
-        {{!-- <img src="{{foundProduct.productImg}}" alt=""> --}}
+    <div class="search-result box-list" id="title-p">
+        <a title="{{this.name}}" href="/product/products/{{foundProduct._id}}"><img src="{{foundProduct.productImage}}" alt="Imagen de producto" width="180px" height="270px" id="img-list"/></a>
         <h4>
-      <a href="/product/products/{{foundProduct._id}}">{{foundProduct.name}}</a>  
+        <a href="/product/products/{{foundProduct._id}}">{{foundProduct.name}}</a>  
         </h4>
         {{foundProduct.price}}
 
     </div>
    {{else}}
-    <div>
- <h3>No se encontró ningún producto</h3>
+    <div id="not-search">
+      <h3>No se encontró ningún producto, vuelve a intentarlo!</h3>
+      <img src="/images/gatito-error.png" alt="gatito-error">
     </div>
     </div>
 

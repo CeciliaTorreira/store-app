@@ -23,7 +23,6 @@ router.get("/", isLoggedIn, (req, res, next) => {
     }
   })
     .then((foundUser) => {
-      console.log(foundUser.purchasesMade);
       res.render("users-views/dashboard.hbs", {
         foundUser: foundUser,
       });

@@ -93,7 +93,7 @@ router.get("/product-search", (req, res, next)=>{
   })
 })
 .catch((error)=>{
-  console.log(error);
+  next(error);
 })
 })
 

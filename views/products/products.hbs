@@ -15,16 +15,20 @@
 
 
 
-<div>
+<div id="product-list">
 
     <h1>Lista de productos</h1>
 
-    <div>
+    <div id="box">
         {{#each products}}
-        <div class="product-card">
-            <img src="{{this.productImage}}" width="180px" height="270px" alt="Imagen de producto">
+        <div class="product-card box-list">
+            <a title="{{this.name}}" href="/product/products/{{this._id}}"><img src="{{this.productImage}}" alt="Imagen de producto" width="180px" height="270px" id="img-list"/></a>
             <br>
-            <a href="/product/products/{{this._id}}">{{this.name}}</a>
+            <div id="title-p">
+              <a href="/product/products/{{this._id}}">{{this.name}}</a>
+              <p>{{this.price}}</p>
+            </div>
+            
         </div>        
         {{/each}}
     </div>

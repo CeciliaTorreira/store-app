@@ -182,5 +182,61 @@ h1 {
 }
 
 #product-box h1 {
-  color:#ca9fe9
+  color:#ca9fe9;
+}
+
+#text-product h2 {
+  color: purple;
+}
+
+#product-list h1 {
+  color:#ca9fe9;
+  text-align: center;
+}
+
+.box-list {
+  border: 4px double #ca9fe9;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  background-color: white;
+  margin: 20px;
+}
+
+#img-list {
+  border-radius: 10px;
+}
+
+#box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#title-p {
+  max-width: 230px;
+  text-align: center;
+}
+#title-p a {
+  text-decoration: none;
+  color: purple;
+  font-size: 20px;
+  
+}
+
+#title-p p {
+  text-align: center;
+  font-size: 18px;
+  color: lightskyblue;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+#not-search {
+  text-align: center;
+}
+
+.search-result {
+  align-items: center;
 }
