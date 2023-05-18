@@ -99,6 +99,22 @@ router.get("/product-search", (req, res, next) => {
     });
 });
 
+//* GET /product/:category => Renderiza la vista de los productos por su categoría.
+
+router.get("/:category", (req, res, next)=>{
+  const category = req.params.category;
+
+ Product.find({category: category})
+ .then((productsByCategory) =>{
+ res.render("products/categories.hbs", {productsByCategory: productsByCategory,
+category: category
+})
+ })
+ .catch((error)=>{
+  next(error)
+ })
+})
+
 
 //* GET "/product/products/:id/edit" => Renderiza la vista para editar un producto
 
