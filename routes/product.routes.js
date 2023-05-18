@@ -85,17 +85,19 @@ router.post("/:id/purchase", isLoggedIn, (req, res, next) => {
 
 //* GET /product/product-search => Renderiza la vista de la búsqueda de un producto
 
-router.get("/product-search", (req, res, next)=>{
-  Product.findOne({ name: req.query.productName })
-.then((foundProduct)=>{
-  res.render("products/search.hbs", {
-    foundProduct: foundProduct
-  })
-})
-.catch((error)=>{
-  console.log(error);
-})
-})
+router.get("/product-search", (req, res, next) => {
+  const search = new RegExp(`.*${req.query.productName}.*`, "i");
+
+  Product.findOne({ name: search })
+    .then((foundProduct) => {
+      res.render("products/search.hbs", {
+        foundProduct: foundProduct
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 
 
 //* GET "/product/products/:id/edit" => Renderiza la vista para editar un producto
