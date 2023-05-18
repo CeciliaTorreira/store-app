@@ -27,7 +27,7 @@ const userSchema = new Schema(
     },
     purchasesMade: [ {
       type: Schema.Types.ObjectId,
-      ref: "Product"
+      ref: "Purchase"
      } ]
   },
   {

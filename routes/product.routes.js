@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Product = require("../models/Product.model.js");
 const Purchase = require("../models/Purchase.model.js");
+const User = require("../models/User.model.js");
 
 
 const {isLoggedIn, isAdmin} = require("../middlewares/authentication.middlewares.js")
@@ -51,22 +52,32 @@ router.post("/:id/purchase", isLoggedIn, (req, res, next) => {
   ) {
     res.render("products/purchase.hbs", {
       errorMessage: "Por favor, rellene todos los campos",
+      buyerName: req.session.activeUser.username
     });
     return;
   }
   Product.findById(req.params.id)
-    .then((response) => {
-      Purchase.create({
-        buyerName: req.body.buyerName,
-        shippingAddress: req.body.shippingAddress,
-        purchasedProduct: response,
-        paymentMethod: req.body.paymentMethod,
-      });
+  .then((product) => {
+    Purchase.create({
+      buyerName: req.body.buyerName,
+      shippingAddress: req.body.shippingAddress,
+      purchasedProduct: product,
+      paymentMethod: req.body.paymentMethod,
     })
+      
 
-    .then(() => {
-      res.redirect("/profile");
+    .then((purchase) => {
+      User.findOne(req.session.activeUser).populate("purchasesMade")
+      .then((user) => {
+        user.purchasesMade.push(purchase);
+        user.save()
+        .then(() => {
+          res.redirect("/profile")
+        })
+      })
     })
+  })
+  
     .catch((err) => next(err));
 });
 

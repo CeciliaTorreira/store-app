@@ -1,62 +1,79 @@
 <div>
-   <h2>Edición de producto</h2>
+   <h2>Edita el producto</h2>
 
    <div>
 
-   <form action="/product/products/{{this.product._id}}/edit" method="post">
+      <form action="/product/products/{{this.product._id}}/edit" method="post">
+         <div class="col-md-4">
+            <label for="name" class="form-label">Nombre de producto:</label>
+            <input type="text" class="form-control" id="validationCustom01" name="name" value="{{this.product.name}}" />
+            <div class="valid-feedback">
+               Looks good!
+            </div>
+         </div>
 
-   <label for="name">Nombre de producto:</label>
-   <input type="text" name="name" value="{{this.product.name}}">
+         <br>
+
+         <div class="col-md-4">
+            <label for="price" class="form-label">Precio del producto:</label>
+            <input type="text" class="form-control" id="validationCustom01" name="price"
+               value="{{this.product.price}}" />
+            <div class="valid-feedback">
+               Looks good!
+            </div>
+         </div>
+
+         <br>
+
+         <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">Categoría:</label>
+            <select class="form-select" id="validationCustom04" required>
+               <option selected disabled value="">Elige...</option>
+               <option value="figura">Figura</option>
+               <option value="cómic">Cómic</option>
+               <option value="videojuegos">Videojuegos</option>
+               <option value="peluche">Peluche</option>
+               <option value="decoración">Decoración</option>
+               <option value="miscelánea">Miscelánea</option>
+            </select>
+            <div class="invalid-feedback">
+               Please select a valid state.
+            </div>
+         </div>
+
+         <br>
+
+         <div class="col-md-4">
+            <label for="description" class="form-label">Descripción:</label>
+            <input type="text" class="form-control" id="validationCustom01" name="description"
+               value="{{this.product.description}}" />
+            <div class="valid-feedback">
+               Looks good!
+            </div>
+         </div>
+
+         <br>
+
+         <div class="col-md-4">
+            <label for="productImage" class="form-label">Imagen del producto:</label>
+            <input type="file" class="form-control" id="validationCustom01" name="productImage" />
+            <div class="valid-feedback">
+               Looks good!
+            </div>
+         </div>
+
+         <br>
+
+         <div class="col-12">
+            <button class="btn btn-primary" id="color" type="submit">Actualizar producto</button>
+         </div>
+
+      </form>
+
+      <div>
+
+      </div>
 
 
-   <br>
-   <br>
-
-   <label for="price">Precio del producto:</label>
-   <input type="text" name="price" value="{{this.product.price}}">
-
-   <br>
-   <br>
-
-   <label for="category">Categoría:</label>
-   <br>
-   <br>
-   <select name="category" multiple>
-
-   <option value="figura">Figura</option>
-   <option value="cómic">Cómic</option>
-   <option value="videojuegos">Videojuegos</option>
-   <option value="peluche">Peluche</option>
-   <option value="decoración">Decoración</option>
-   <option value="miscelánea">Miscelánea</option>
-
-   </select>
-
-   <br>
-   <br>
-
-   <label for="description">Descripción:</label>
-   <input type="text" name="description" value="{{this.product.description}}">
-
-   <br>
-   <br>
-
-   <label for="productImage">Imagen de producto:</label>
-   <br>
-   <br>
-   <input type="file" name="productImage">
-
-   <br>
-   <br>
-
-   <button>Actualizar producto</button>
-
-   </form>
-
-   <div>
 
    </div>
-
-
-
-</div>

@@ -1,40 +1,58 @@
 <div>
 
 
-<h3>Formulario de registro</h3>
+<h3>Regístrate 💜</h3>
 
 <div class="signup-card">
 
 <form action="/auth/signup" method="post">
 
-<label for="username">Nombre de usuario*:</label>
-<input type="text" name="username">
+<div class="col-md-4">
+    <label for="username" class="form-label">Nombre de usuario*:</label>
+    <input type="text" class="form-control" id="validationCustom01" name="username">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+</div>
+
+<br>
+
+<div class="col-md-4">
+    <label for="email" class="form-label">Correo electrónico*:</label>
+    <input type="email" class="form-control" id="validationCustom01" name="email">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+
+</div>
+
+<br>
+
+<div class="col-md-4">
+    <label for="password" class="form-label">Contraseña*:</label>
+    <input type="password" class="form-control" id="validationCustom01" name="password">
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+
+</div>
+
+<br>
+
+<p style="color:purple">* Campos obligatorios</p>
 
 <br>
 <br>
 
-<label for="email">Correo electrónico*:</label>
-<input type="email" name="email">
+<div class="col-12">
+    <button class="btn btn-primary" id="color" type="submit">Registrar</button>
+  </div>
+
 
 <br>
 <br>
 
-<label for="password">Contraseña*:</label>
-<input type="password" name="password">
-
-<br>
-
-<p>*Campos obligatorios</p>
-
-<br>
-<br>
-
-<button>Registrar</button>
-
-<br>
-<br>
-
-<a href="/auth/login">Si ya estás registrado, haz click aquí</a>  
+<a id="enlace" href="/auth/login">-> Si ya estás registrado, haz click aquí</a>  
 
 {{#if this.errorMessage}}
 
