@@ -1,26 +1,39 @@
 <div>
-    <h1>Detalles del producto</h1>
-    
-    <div>
-        <h2>{{this.products.name}}</h2>
-        <p>{{this.products.price}}</p>
-        <p>{{this.products.description}}</p>
-    </div>
+  <h2>Detalles </h2>
 
-    <div>
-       <a href="/product/{{this.products._id}}/purchase"> <button>Comprar</button></a>
-    </div>
+  <div>
+    <h2>{{this.products.name}}</h2>
+    <img
+      src="{{this.products.productImage}}"
+      width="180px"
+      height="270px"
+      alt="Imagen de producto"
+    />
+    <p>{{this.products.price}}</p>
+    <p>{{this.products.description}}</p>
+  </div>
 
-<br>
- {{#if isAdmin}}
-    <div class="admin-edit-button">
-       <a href="/product/products/{{this.products._id}}/edit"> <button>Editar producto</button></a>
-    </div>
-<br>
-<div class="delete-button">
-    <form action="/product/products/{{this.products._id}}/delete" method="post">
-   <button class="delete-button">Eliminar producto</button>
-    </form>
-</div>
-{{/if}}
+  <div>
+    <a href="/product/{{this.products._id}}/purchase">
+      <button>Comprar</button></a>
+  </div>
+
+  <br />
+  <div>
+    {{#if isAdmin}}
+      <div class="admin-edit-button">
+        <a href="/product/products/{{this.products._id}}/edit">
+          <button>Editar producto</button></a>
+      </div>
+      <br />
+      <div class="delete-button">
+        <form
+          action="/product/products/{{this.products._id}}/delete"
+          method="post">
+          <button class="delete-button">Eliminar producto</button>
+        </form>
+      </div>
+    {{/if}}
+  </div>
+
 </div>
