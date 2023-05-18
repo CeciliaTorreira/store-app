@@ -4,6 +4,7 @@ const router = express.Router();
 const Product = require("../models/Product.model.js");
 const Purchase = require("../models/Purchase.model.js");
 const User = require("../models/User.model.js");
+const uploader = require("../middlewares/uploader.js");
 
 
 const {isLoggedIn, isAdmin} = require("../middlewares/authentication.middlewares.js")
@@ -113,11 +114,12 @@ router.get("/products/:id/edit", isAdmin, isLoggedIn, (req, res, next)=>{
 
 //* POST "/product/products/:id/edit" => Recibe la información del admin y actualiza un producto
 
-router.post("/products/:id/edit", isAdmin, isLoggedIn, (req, res, next)=>{
+router.post("/products/:id/edit", isAdmin, isLoggedIn, uploader.single("productImage"), (req, res, next)=>{
   Product.findByIdAndUpdate(req.params.id, {
    name: req.body.name, 
    price: req.body.price, 
    category: req.body.category,
+   productImage: req.file.path,
    description: req.body.description}, 
    {new: true})
    

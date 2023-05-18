@@ -3,7 +3,7 @@
 
    <div>
 
-      <form action="/product/products/{{this.product._id}}/edit" method="post">
+      <form action="/product/products/{{this.product._id}}/edit" method="post" enctype="multipart/form-data">
          <div class="col-md-4">
             <label for="name" class="form-label">Nombre de producto:</label>
             <input type="text" class="form-control" id="validationCustom01" name="name" value="{{this.product.name}}" />
@@ -26,9 +26,9 @@
          <br>
 
          <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Categoría:</label>
-            <select class="form-select" id="validationCustom04" required>
-               <option selected disabled value="">Elige...</option>
+            <label for="category" class="form-label">Categoría:</label>
+            <select class="form-select" name="category" id="validationCustom04" required>
+               <option selected disabled>Elige...</option>
                <option value="figura">Figura</option>
                <option value="cómic">Cómic</option>
                <option value="videojuegos">Videojuegos</option>
@@ -46,7 +46,7 @@
          <div class="col-md-4">
             <label for="description" class="form-label">Descripción:</label>
             <input type="text" class="form-control" id="validationCustom01" name="description"
-               value="{{this.product.description}}" />
+               value="{{this.product.description}}"/>
             <div class="valid-feedback">
                Looks good!
             </div>

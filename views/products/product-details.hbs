@@ -1,4 +1,4 @@
-<div>
+<div id="product-card">
   <h2>Detalles </h2>
 
   <div>
@@ -11,14 +11,13 @@
     />
     <p>{{this.products.price}}</p>
     <p>{{this.products.description}}</p>
-  </div>
 
-  <div>
     <a href="/product/{{this.products._id}}/purchase">
       <button>Comprar</button></a>
   </div>
 
   <br />
+
   <div>
     {{#if isAdmin}}
       <div class="admin-edit-button">
