@@ -141,6 +141,46 @@ h1 {
   color:rgb(232, 191, 232) !important;
 }
 
-#product-card {
+#product-box {
   text-align: center;
+  align-items: center;
+}
+
+.product-card {
+  align-items: center;
+  display: flex;
+  margin-left: 15%;
+  margin-top: 40px;
+}
+
+#text-product {
+  margin: 30px;
+  margin-left: 100px;
+  border: 4px double #ca9fe9;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: white;
+
+}
+
+#product-img {
+  border: 4px double #ca9fe9;
+  border-radius: 10px;
+}
+
+#btn-product {
+   margin-top: 60px;
+}
+
+#text-important {
+  display: flex;
+  flex-direction: column;
+}
+
+#btn-shoping {
+  margin-top: 20px;
+}
+
+#product-box h1 {
+  color:#ca9fe9
 }
