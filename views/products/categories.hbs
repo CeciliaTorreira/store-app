@@ -24,10 +24,10 @@
 
 <div id="product-list">
 
-    <h1>Lista de productos</h1>
+    <h1>Categoría: {{this.category}}</h1>
 
     <div id="box">
-        {{#each products}}
+        {{#each productsByCategory}}
         <div class="product-card box-list">
             <a title="{{this.name}}" href="/product/products/{{this._id}}"><img src="{{this.productImage}}" alt="Imagen de producto" width="180px" height="270px" id="img-list"/></a>
             <br>
