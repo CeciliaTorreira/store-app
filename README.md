@@ -28,7 +28,7 @@ Segundo proyecto del curso de desarrollo web de Ironhack hecho por Lorena Lario 
 **Pendiente** Tenemos algunos bonuses que nos gustaría implementar pero querríamos pensar bien sobre ellos antes.
 
 ## Tecnologías usadas:
-
+ 
 - HTML
 - CSS
 - Javascript
