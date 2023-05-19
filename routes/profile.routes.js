@@ -16,13 +16,14 @@ const {
 //* GET "/profile" => Renderiza el perfil de un usuario estándar.
 
 router.get("/", isLoggedIn, (req, res, next) => {
-  User.findOne(req.session.activeUser).populate({
+  User.findById(req.session.activeUser._id).populate({
     path: "purchasesMade",
     populate: {
       path: 'purchasedProduct'
     }
   })
     .then((foundUser) => {
+      console.log(foundUser)
       res.render("users-views/dashboard.hbs", {
         foundUser: foundUser,
       });

@@ -1,50 +1,71 @@
 <div>
-    <h1>Comprar producto 💜</h1>
-    <div>
+  <h1>Comprar producto 💜</h1>
+  <div>
 
-        <form action="/product/{{this.product._id}}/purchase" method="post">
-        <div class="col-md-4">
-            <label for="buyerName" class="form-label">Nombre del comprador: </label>
-            <input type="text" class="form-control" id="validationCustom01" name="buyerName"/>
-            <div class="valid-feedback">
-               Looks good!
-            </div>
-         </div>
-        <br>
-
-        <div class="col-md-4">
-            <label for="shippingAddress" class="form-label">Dirección de envío:</label>
-            <input type="text" class="form-control" id="validationCustom01" name="shippingAddress"/>
-            <div class="valid-feedback">
-               Looks good!
-            </div>
-         </div>
-        <br>
-
-        <div class="col-md-3">
-            <label for="paymentMethod" class="form-label">Método de pago:</label>
-            <select class="form-select" name="paymentMethod" id="validationCustom04" required>
-                <option selected disabled>Elige método de pago...</option>
-                <option value="Paypal">Paypal</option>
-                <option value="Tarjeta">Tarjeta</option>
-                <option value="Contrarreembolso">Contrarreembolso</option>
-            </select>
-            <div class="invalid-feedback">
-               Please select a valid state.
-            </div>
-         </div>
-
-        <br>
-
-        <div class="col-12">
-            <button class="btn btn-primary" id="color" type="submit">Comprar</button>
-         </div>
-
-        </form>
-        <div>
-            <p>{{this.errorMessage}}</p>
+    <form action="/product/{{this.product._id}}/purchase" method="post">
+      <div class="col-md-4">
+        <label for="buyerName" class="form-label">Nombre del comprador: </label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          name="buyerName"
+        />
+        <div class="valid-feedback">
+          Looks good!
         </div>
-    </div>
+      </div>
+      <br />
 
+      <div class="col-md-4">
+        <label for="shippingAddress" class="form-label">Dirección de envío:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          name="shippingAddress"
+        />
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <br />
+
+      <div class="col-md-3">
+        <label for="paymentMethod" class="form-label">Método de pago:</label>
+        <select
+          class="form-select"
+          name="paymentMethod"
+          id="validationCustom04"
+          required
+        >
+          <option selected disabled>Elige método de pago...</option>
+          <option value="Paypal">Paypal</option>
+          <option value="Tarjeta">Tarjeta</option>
+          <option value="Contrarreembolso">Contrarreembolso</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid state.
+        </div>
+      </div>
+
+      <br />
+
+      <div class="col-12">
+        <button
+          class="btn btn-primary"
+          id="color"
+          type="submit"
+        >Comprar</button>
+      </div>
+
+    </form>
+    <div>
+      {{#if this.errorMessage}}
+        <p>{{this.errorMessage}}</p>
+      {{/if}}
+    
+    </div>
+  </div>
 
 </div>
