@@ -7,31 +7,33 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       required: false,
-      unique: true
+      unique: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
       lowercase: true,
-      trim: true
+      trim: true,
     },
     password: {
       type: String,
-      required: true
+      required: true,
     },
     role: {
       type: String,
       enum: ["admin", "user"],
-      default: "user"
+      default: "user",
     },
-    purchasesMade: [ {
-      type: Schema.Types.ObjectId,
-      ref: "Purchase"
-     } ]
+    purchasesMade: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Purchase",
+      },
+    ],
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 

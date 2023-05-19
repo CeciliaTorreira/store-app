@@ -1,41 +1,51 @@
 <div class="admin-link">
-     {{#if isAdmin}}
-      
-        <a id="enlace1" href="/profile/admin">Perfil de administrador</a>
- 
-      {{/if}}
+  {{#if isAdmin}}
 
+    <a id="enlace1" href="/profile/admin">Perfil de administrador</a>
+
+  {{/if}}
 
 </div>
 
+<br />
+<div class="search-bar">
+  <form action="/product/product-search" method="get">
+    <input
+      name="productName"
+      type="text"
+      placeholder=" Escribe lo que estés buscando ~ 🌺"
+      list="products"
+    />
     <br />
-    <div class="search-bar">
-      <form action="/product/product-search" method="get">
-        <input
-          name="productName"
-          type="text"
-          placeholder=" Escribe lo que estés buscando ~ 🌺"
-          list="products"
-        />
-        <br>
-        <button>Buscar</button>
-      </form>
-    </div>
-    <br />
+    <button>Buscar</button>
+  </form>
+</div>
+<br />
 
 <div id="div-inicio">
 
-  <img src="/images/LOGO.png" alt="logo">
-   <p>¡Bienvenido a tu tienda de confianza!</p>
-  <img id="div-inicio-img"src="/images/texto.png" alt="texto">
- 
+  <img src="/images/LOGO.png" alt="logo" />
+  <p>¡Bienvenido a tu tienda de confianza!</p>
+  <img id="div-inicio-img" src="/images/texto.png" alt="texto" />
+
 </div>
 
 <div id="cookie-message">
-  <p>Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Acepta nuestras cookies para continuar navegando.</p>
+  <p>Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Acepta
+    nuestras cookies para continuar navegando.</p>
   <div class="col-12">
-        <button class="btn btn-primary" id="color" type="submit" onclick="acceptCookies()">Aceptar</button>
-        <button class="btn btn-primary" id="color" type="submit" onclick="rejectCookies()">Rechazar</button>
-      </div>  
+    <button
+      class="btn btn-primary"
+      id="color"
+      type="submit"
+      onclick="acceptCookies()"
+    >Aceptar</button>
+    <button
+      class="btn btn-primary"
+      id="color"
+      type="submit"
+      onclick="rejectCookies()"
+    >Rechazar</button>
+  </div>
 
 </div>

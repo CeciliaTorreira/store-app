@@ -4,25 +4,25 @@ const purchaseSchema = new Schema(
   {
     buyerName: {
       type: String,
-      required: true
+      required: true,
     },
     shippingAddress: {
-    type: String,
-    required: true
+      type: String,
+      required: true,
     },
     purchasedProduct: {
-        type: Schema.Types.ObjectId,
-        ref: "Product",
-        required: true
+      type: Schema.Types.ObjectId,
+      ref: "Product",
+      required: true,
     },
     paymentMethod: {
-    type: String,
-    enum: ["Paypal", "Tarjeta", "Contrarreembolso"],
-    required: true
-    }
+      type: String,
+      enum: ["Paypal", "Tarjeta", "Contrarreembolso"],
+      required: true,
+    },
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 

@@ -5,16 +5,23 @@ const productSchema = new Schema(
     name: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     price: {
       type: String,
       required: true,
     },
     category: {
-    type: String,
-    enum: ["figura", "cómic", "videojuegos", "peluche", "decoración", "miscelánea"],
-    required: true,
+      type: String,
+      enum: [
+        "figura",
+        "cómic",
+        "videojuegos",
+        "peluche",
+        "decoración",
+        "miscelánea",
+      ],
+      required: true,
     },
     description: {
       type: String,
@@ -23,7 +30,7 @@ const productSchema = new Schema(
     productImage: String,
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 

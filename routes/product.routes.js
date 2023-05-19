@@ -71,7 +71,9 @@ router.post("/:id/purchase", isLoggedIn, (req, res, next) => {
   })
 
     .then((purchase) => {
-      return User.findByIdAndUpdate(req.session.activeUser._id, { $push: {purchasesMade: purchase._id} } );
+      return User.findByIdAndUpdate(req.session.activeUser._id, {
+        $push: { purchasesMade: purchase._id },
+      });
     })
     .then(() => {
       res.redirect("/profile");

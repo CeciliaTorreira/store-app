@@ -1,17 +1,17 @@
- <br />
-    <div class="search-bar">
-      <form action="/product/product-search" method="get">
-        <input
-          name="productName"
-          type="text"
-          placeholder=" Escribe lo que estés buscando ~ 🌺"
-          list="products"
-        />
-        <br>
-        <button >Buscar</button>
-      </form>
-    </div>
+<br />
+<div class="search-bar">
+  <form action="/product/product-search" method="get">
+    <input
+      name="productName"
+      type="text"
+      placeholder=" Escribe lo que estés buscando ~ 🌺"
+      list="products"
+    />
     <br />
+    <button>Buscar</button>
+  </form>
+</div>
+<br />
 
 <div class="category-buttons">
   <a href="/product/videojuegos"><button>Videojuegos</button></a>
@@ -24,20 +24,26 @@
 
 <div id="product-list">
 
-    <h1>Lista de productos</h1>
+  <h1>Lista de productos</h1>
 
-    <div id="box">
-        {{#each products}}
-        <div class="product-card box-list">
-            <a title="{{this.name}}" href="/product/products/{{this._id}}"><img src="{{this.productImage}}" alt="Imagen de producto" width="180px" height="270px" id="img-list"/></a>
-            <br>
-            <div id="title-p">
-              <a href="/product/products/{{this._id}}">{{this.name}}</a>
-              <p>{{this.price}}</p>
-            </div>
-            
-        </div>        
-        {{/each}}
-    </div>
+  <div id="box">
+    {{#each products}}
+      <div class="product-card box-list">
+        <a title="{{this.name}}" href="/product/products/{{this._id}}"><img
+            src="{{this.productImage}}"
+            alt="Imagen de producto"
+            width="180px"
+            height="270px"
+            id="img-list"
+          /></a>
+        <br />
+        <div id="title-p">
+          <a href="/product/products/{{this._id}}">{{this.name}}</a>
+          <p>{{this.price}}</p>
+        </div>
+
+      </div>
+    {{/each}}
+  </div>
 
 </div>

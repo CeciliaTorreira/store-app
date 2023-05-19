@@ -16,14 +16,15 @@ const {
 //* GET "/profile" => Renderiza el perfil de un usuario estándar.
 
 router.get("/", isLoggedIn, (req, res, next) => {
-  User.findById(req.session.activeUser._id).populate({
-    path: "purchasesMade",
-    populate: {
-      path: 'purchasedProduct'
-    }
-  })
+  User.findById(req.session.activeUser._id)
+    .populate({
+      path: "purchasesMade",
+      populate: {
+        path: "purchasedProduct",
+      },
+    })
     .then((foundUser) => {
-      console.log(foundUser)
+      console.log(foundUser);
       res.render("users-views/dashboard.hbs", {
         foundUser: foundUser,
       });
@@ -95,7 +96,8 @@ router.post(
 //* GET /profile/purchase-history => Renderiza la vista de las compras en la web
 
 router.get("/purchase-history", isLoggedIn, isAdmin, (req, res, next) => {
-  Purchase.find().populate("purchasedProduct")
+  Purchase.find()
+    .populate("purchasedProduct")
 
     .then((foundPurchase) => {
       res.render("users-views/admin-purchase-history.hbs", {

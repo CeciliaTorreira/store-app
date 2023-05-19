@@ -3,20 +3,20 @@
 
   <div class="product-card">
     <div>
-        <img
+      <img
         src="{{this.products.productImage}}"
         width="250px"
         height="380px"
         alt="Imagen de producto"
         id="product-img"
-        />
+      />
     </div>
-    
+
     <div id="text-product">
       <h2>{{this.products.name}}</h2>
       <p>{{this.products.price}}</p>
       <p id="text-important">{{this.products.description}}</p>
-       <a href="/product/{{this.products._id}}/purchase">
+      <a href="/product/{{this.products._id}}/purchase">
         <button class="btn btn-primary titulo" id="color">Comprar</button></a>
     </div>
 
@@ -34,7 +34,8 @@
       <div id="col-12">
         <form
           action="/product/products/{{this.products._id}}/delete"
-          method="post">
+          method="post"
+        >
           <button class="btn btn-primary" id="color">Eliminar producto</button>
         </form>
       </div>
