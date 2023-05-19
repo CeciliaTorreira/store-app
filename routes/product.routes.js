@@ -87,7 +87,7 @@ router.post("/:id/purchase", isLoggedIn, (req, res, next) => {
 router.get("/product-search", (req, res, next) => {
   const search = new RegExp(`.*${req.query.productName}.*`, "i");
 
-  Product.findOne({ name: search })
+  Product.find({ name: search })
     .then((foundProduct) => {
       res.render("products/search.hbs", {
         foundProduct: foundProduct,

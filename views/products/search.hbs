@@ -17,14 +17,15 @@
 <div id="not-search">
     <h1>Resultados de tu búsqueda </h1>
  {{#if this.foundProduct}}
+ {{#each this.foundProduct}}
     <div class="search-result box-list" id="title-p">
         <a title="{{this.name}}" href="/product/products/{{foundProduct._id}}"><img src="{{foundProduct.productImage}}" alt="Imagen de producto" width="180px" height="270px" id="img-list"/></a>
         <h4>
         <a href="/product/products/{{foundProduct._id}}">{{foundProduct.name}}</a>  
         </h4>
         {{foundProduct.price}}
-
     </div>
+    {{/each}}
    {{else}}
     <div id="not-search">
       <h3>No se encontró ningún producto, vuelve a intentarlo!</h3>
