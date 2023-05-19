@@ -14,23 +14,25 @@
     <br />
 
 
-<div id="not-search">
-    <h1>Resultados de tu búsqueda </h1>
- {{#if this.foundProduct}}
- {{#each this.foundProduct}}
-    <div class="search-result box-list" id="title-p">
-        <a title="{{this.name}}" href="/product/products/{{foundProduct._id}}"><img src="{{foundProduct.productImage}}" alt="Imagen de producto" width="180px" height="270px" id="img-list"/></a>
-        <h4>
-        <a href="/product/products/{{foundProduct._id}}">{{foundProduct.name}}</a>  
-        </h4>
-        {{foundProduct.price}}
-    </div>
-    {{/each}}
-   {{else}}
-    <div id="not-search">
-      <h3>No se encontró ningún producto, vuelve a intentarlo!</h3>
-      <img src="/images/gatito-error.png" alt="gatito-error">
-    </div>
-    </div>
+<div id="product-list">
 
-    {{/if}}
+    <h1>Resultados de tu búsqueda </h1>
+
+{{#if foundProduct}}
+<div id="box">
+  {{#each foundProduct}}
+    <div class="search-result product-card box-list" id="title-p">
+      <a title="{{this.name}}" href="/product/products/{{_id}}"><img src="{{productImage}}" alt="Imagen de producto" width="180px" height="270px" id="img-list"/></a>
+      <h4>
+        <a href="/product/products/{{_id}}">{{name}}</a>  
+      </h4>
+      {{price}}
+    </div>
+  {{/each}}
+  </div>
+{{else}}
+  <div id="not-search">
+    <h3>No se encontró ningún producto, ¡vuelve a intentarlo!</h3>
+    <img src="/images/gatito-error.png" alt="gatito-error">
+  </div>
+{{/if}}
