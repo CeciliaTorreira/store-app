@@ -1,9 +1,9 @@
 
 # Purrfect-store
 
-## [See the App!](www.your-deploy-url-here.com)
+## [Ve a la aplicación](https://purrfect-shop.adaptable.app/)))
 
-![App Logo](your-image-logo-path-or-name)
+
 
 ## Description
 
@@ -28,7 +28,7 @@ Segundo proyecto del curso de desarrollo web de Ironhack hecho por Lorena Lario 
 **Pendiente** Tenemos algunos bonuses que nos gustaría implementar pero querríamos pensar bien sobre ellos antes.
 
 ## Tecnologías usadas:
-
+ 
 - HTML
 - CSS
 - Javascript
@@ -159,7 +159,8 @@ Product model
 
 ### Project
 
-[Repository Link]([www.your-github-url-here.com](https://github.com/CeciliaTorreira/store-app))
+[Repository Link](https://github.com/CeciliaTorreira/store-app))
+[Slides_Link](https://acrobat.adobe.com/id/urn:aaid:sc:EU:58d5a45d-c974-45e7-acd6-7e5390062c00)
 
 [Deploy Link][www.your-deploy-url-here.com](https://purrfect-shop.adaptable.app/))
 
